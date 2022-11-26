@@ -1,0 +1,43 @@
+.features {
+    grid-column: center-start / center-end;
+
+    margin: 15rem 0;
+
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    // This below will create responsiveness without using media-query
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    // grid-template-rows: auto auto; //No need
+    gap: 6rem;
+
+    align-items: flex-start;
+    // Either this way or specify align-content (or align-self) down in the .feature item; or define grid-template-rows
+}
+
+.feature {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    row-gap: 1.5rem;
+    column-gap: 2.5rem;
+    // There will be a bigger gap between h4 and text when the content is shorter, because the default of each item is stretch. Refer to the teacher's fix above, or try one of these below (my researched fixes)
+    // align-content: flex-start;
+    // OR
+    // align-self: flex-start;
+    // OR
+    // grid-template-rows: min-content;
+    // align-items: flex-start;
+
+    &__icon {
+        grid-row: 1/ span 2;
+
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+
+        transform: translateY(-1rem);
+    }
+
+    &__text {
+        font-size: 1.7rem;
+    }
+}
